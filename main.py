@@ -1,14 +1,40 @@
-# This is a sample Python script.
+class Producto:
+    def __init__(self, nombre, precio, categoria, descripcion, cantidad):
+        self.nombre = nombre
+        self.precio = precio
+        self.categoria = categoria
+        self.descripcion = descripcion
+        self.cantidad = cantidad
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    def __str__(self):
+        return (f'Producto: {self.nombre}, Precio: {self.precio}, Categoria: {self.categoria}, '
+                f'Descripcion: {self.descripcion}, Cantidad: {self.cantidad}')
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Hola')
+class Main:
+    listaProductos = []
 
+    def agregarProductoALista(self):
+        nombre = input('Nombre del producto: ')
+        precio = input('Precio del producto: ')
+        categoria = input('Categoria del producto: ')
+        descripcion = input('Descripcion del producto: ')
+        cantidad = input('Cantidad del producto: ')
+        producto = Producto(nombre, precio, categoria, descripcion, cantidad)
+        self.listaProductos.append(producto)
+
+    def agregarProducto(self):
+        self.agregarProductoALista()
+
+    def imprimirProductos(self):
+        for producto in self.listaProductos:
+            print(producto)
+
+
+if __name__ == "__main__":
+    # Crear una instancia de Main
+    main_instance = Main()
+    # Llamar al método para agregar un producto
+    main_instance.agregarProducto()
+    # Llamar al método para imprimir los productos
+    main_instance.imprimirProductos()
